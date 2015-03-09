@@ -1,6 +1,6 @@
 include $(TOPDIR)/rules.mk
 
-PKG_NAME:=gluon-config-mode-site-select
+PKG_NAME:=gluon-luci-site-select
 PKG_VERSION:=0.1
 PKG_RELEASE:=1
 
@@ -8,9 +8,10 @@ PKG_BUILD_DIR := $(BUILD_DIR)/$(PKG_NAME)
 
 include $(INCLUDE_DIR)/package.mk
 
-define Package/gluon-config-mode-site-select
+define Package/gluon-luci-site-select
   SECTION:=gluon
   CATEGORY:=Gluon
+  DEPENDS:=+gluon-luci-admin
   TITLE:=UI for changing the node-config
 endef
 
@@ -24,12 +25,11 @@ endef
 define Build/Compile
 endef
 
-define Package/gluon-config-mode-site-select/install
+define Package/gluon-luci-site-select/install
 	mkdir -p $(1)/lib/gluon/site-select/
-	mkdir -p $(1)/etc/config/
+	sh create-config.sh
 	$(CP) ./files/* $(1)/
 	$(CP) $(GLUON_SITEDIR)/extra/* $(1)/lib/gluon/site-select/
-	$(CP) $(GLUON_SITEDIR)/siteselect $(1)/etc/config/
 endef
 
-$(eval $(call BuildPackage,gluon-config-mode-site-select))
+$(eval $(call BuildPackage,gluon-luci-site-select))
