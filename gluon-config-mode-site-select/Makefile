@@ -27,9 +27,9 @@ endef
 
 define Package/gluon-luci-site-select/install
 	mkdir -p $(1)/lib/gluon/site-select/
-	sh create-config.sh
 	$(CP) ./files/* $(1)/
 	$(CP) $(GLUON_SITEDIR)/extra/* $(1)/lib/gluon/site-select/
+	DIR=$(1) sh create-config.sh
 endef
 
 $(eval $(call BuildPackage,gluon-luci-site-select))
