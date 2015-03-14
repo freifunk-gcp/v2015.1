@@ -8,16 +8,7 @@ Usage
 -----
 * Rename your site-files to site_code.conf (E.g. ffki.conf, ffhh.conf)
 * copy your renamed site-files to $gluondir/site/extra/
-* Add the file "siteselect" in $gluondir/site/ and add the entrys for your site-files. It should look like this:
-```
-config site 'ffhh'
-	option path '/lib/gluon/site-select/ffhh.conf'
-	option sitename 'Freifunk Hamburg'
 
-config site 'ffki'
-        option path '/lib/gluon/site-select/ffki.conf'
-        option sitename 'Freifunk Kiel'
-```
 <br>
 Das ganze sieht dann so aus: <br>
 ![](http://labor19.net/Hendrik/preview1.png)
