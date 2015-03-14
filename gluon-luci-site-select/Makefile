@@ -26,6 +26,7 @@ define Build/Compile
 endef
 
 define Package/gluon-luci-site-select/install
+	mkdir -p $(1)/etc/config/
 	mkdir -p $(1)/lib/gluon/site-select/
 	$(CP) ./files/* $(1)/
 	$(CP) $(GLUON_SITEDIR)/extra/* $(1)/lib/gluon/site-select/

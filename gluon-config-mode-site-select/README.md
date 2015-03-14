@@ -1,4 +1,6 @@
-# gluon-luci-site-select
+gluon-luci-site-select
+======================
+
 This Repository contains a Gluon package to choose between different site.conf files after flashing the image. <br>
 This does not apply to the site.mk!
 
@@ -6,7 +8,6 @@ Usage
 -----
 * Rename your site-files to site_code.conf (E.g. ffki.conf, ffhh.conf)
 * copy your renamed site-files to $gluondir/site/extra/
-* Add the file "siteselect" in $gluondir/site/ and add the entrys for your site-files. It should look like this:
 
 <br>
 Das ganze sieht dann so aus: <br>
