@@ -14,11 +14,11 @@ List of packages:
   * this packages provides a tab in expertmode where you can dis/enable the SSIDs of your Router. This is verry usefull, when you want a router to mesh only on one band or if you want to create a  backbone router.
 
 
-Concept of this repository (Will be translated soon):
------------------------------------------------------
- * Ein Git-Repo in dem alle Pakete drin sind die nicht zum Kernsystem gehören
-  * Kernsystem-Pakete sind Pakete die von neoraider und tcatm gepflegt werden
-  * Alle anderen Pakete (z.B privat-wifi, wifi-config) sind addons
+Concept of this repository :
+----------------------------
+ * one Git repository for every git repositorx which is not in te core packages
+  * Core packages are packages which are supported and updated by tcatm and neoraider
+  * all other packagest (e.g. privat-wifi, wifi-config) are addons
   * wird von mehreren Head-Maintainern verwaltet (DO9XE & pberndro)
   * für jede Gluon Version wird ein eigener Branch angelegt, um backports zu ermöglichen
  * Jedes Paket hat einen Maintainer, dieser kann gewechselt werden. hat ein Paket keinen Maintainer mehr und es findet sich kein neuer wird der Support ab dem Zeitpunkt der Inkompatibilität mit Gluon gestoppt.

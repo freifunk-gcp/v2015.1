@@ -30,6 +30,7 @@ end
 
 function M.handle(data)
 
+	if data.community not site.site_code then
 		uci:set('siteselect', site.site_code, "secret", uci:get('fastd', 'mesh_vpn', 'secret'))
 		uci:save('siteselect')
 		uci:commit('siteselect')
@@ -50,7 +51,7 @@ function M.handle(data)
 		fs.copy(uci:get('siteselect', data.community , 'path'), '/lib/gluon/site.conf')
 		
 		os.execute('sh "/rom/etc/uci-defaults/zzz-gluon-upgrade"')
-
+	end
 end
 
 return M
