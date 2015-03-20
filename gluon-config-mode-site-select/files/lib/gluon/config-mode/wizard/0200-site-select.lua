@@ -57,7 +57,7 @@ function M.handle(data)
 
 		fs.copy(uci:get('siteselect', data.community , 'path'), '/lib/gluon/site.conf')
 		
-		os.execute('sh "/rom/etc/uci-defaults/zzz-gluon-upgrade"')
+		os.execute('sh "/lib/gluon/site-upgrade"')
 	end
 end
 
