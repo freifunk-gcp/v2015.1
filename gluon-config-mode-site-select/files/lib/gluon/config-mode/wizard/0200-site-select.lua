@@ -20,17 +20,24 @@ function M.section(form)
 	)
 	
 	local o = s:option(cbi.ListValue, "community", "Community")
-	o:value(site.site_code, site.site_name)
-	
-		for index, site in ipairs(sites) do
-			o:value(site, uci:get('siteselect', site, 'sitename'))
-		end
+	o.rmempty = false
+	o.optional = false
+
+	if uci:get_first("gluon-setup-mode", "setup_mode", "configured") == "0" then
+		o:value("")
+	else
+		o:value(site.site_code, site.site_name)
+	end
+
+	for index, site in ipairs(sites) do
+		o:value(site, uci:get('siteselect', site, 'sitename'))
+	end
 
 end
 
 function M.handle(data)
 
-	if data.community not site.site_code then
+	if data.community ~= site.site_code then
 		uci:set('siteselect', site.site_code, "secret", uci:get('fastd', 'mesh_vpn', 'secret'))
 		uci:save('siteselect')
 		uci:commit('siteselect')
