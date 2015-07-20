@@ -38,7 +38,7 @@ function f.handle(self, state, data)
 		if data.community ~= site.site_code then
 		
 			fs.copy(uci:get('siteselect', data.community , 'path'), '/lib/gluon/site.conf')
-			
+			uci:set('currentsite', 'current', 'name', data.community)
 			os.execute('sh "/lib/gluon/site-upgrade"')
 		end
 	end

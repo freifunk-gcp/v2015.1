@@ -1,0 +1,15 @@
+#!/usr/bin/lua
+
+local uci = luci.model.uci.cursor()
+local site = require 'gluon.site_config'
+local fs = require "nixio.fs"
+
+local currentsite = uci:get_first("currentsite", "current", "name")
+
+if uci:get_first("gluon-setup-mode", "setup_mode", "configured") == "0" then
+	os.execute('echo "/etc/config/currentsite" >> /etc/sysupgrade.conf')
+end
+
+if site.site_name ~= uci:get('siteselect', currentsite, 'sitename') then
+	fs.copy(uci:get('siteselect', currentsite , 'path'), '/lib/gluon/site.conf')
+end
