@@ -39,6 +39,8 @@ function f.handle(self, state, data)
 		
 			fs.copy(uci:get('siteselect', data.community , 'path'), '/lib/gluon/site.conf')
 			uci:set('currentsite', 'current', 'name', data.community)
+			uci:save('currentsite')
+			uci:commit('currentsite')		
 			os.execute('sh "/lib/gluon/site-upgrade"')
 		end
 	end
